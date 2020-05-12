@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="tabs">
+            <ul><li id="login"><a>Login</a></li>
+            </ul>
+        </div>
+        <div class="forms">
+        <div class="login">
+            <p>SignIn in your account.</p>
+        
+            <form method="post" action="login">
+                {% csrf_token %}
+                <input class="field" name="username" required type="text" placeholder="username" />
+                <input class="field" name="password" required type="password"  placeholder="* Password" />
+                <input type="checkbox" name="terms"> <em>Keep me logged in </em> <input type="submit" value="Login" />
+            </form>
+        </div>
+        </div>
+        <div>
+            <h3>
+                {% for message in messages %}
+                {{message}}
+                {% endfor %}
+            </h3>
+        </div>
+
+
+</body>
+</html>
